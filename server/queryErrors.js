@@ -1,4 +1,3 @@
-// Lógica principal: replica tu Python en Node
 async function queryErrors({ analyticsApi, usersApi, routingApi }, { interval, errorCode }) {
   const body = {
     interval,
