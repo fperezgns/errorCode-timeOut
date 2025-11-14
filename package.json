@@ -1,0 +1,15 @@
+{
+  "name": "genesys-error-explorer",
+  "version": "1.0.0",
+  "description": "Explorador de errores (Analytics) para Genesys Cloud",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "purecloud-platform-client-v2": "^201.0.0"
+  }
+}

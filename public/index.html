@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Genesys Error Explorer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            padding: 1rem;
+        }
+
+        .table-wrap {
+            max-height: 55vh;
+            overflow: auto;
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Genesys Error Explorer</h1>
+        <p class="mono">Busca por <code>errorCode</code> y rango de fecha/hora. Visualiza y exporta.</p>
+
+        <form id="searchForm">
+            <div class="grid">
+                <div>
+                    <label>errorCode</label>
+                    <input id="errorCode" type="text" value="error.ininedgecontrol.connection.timeout" required />
+                </div>
+                <div>
+                    <label>Inicio</label>
+                    <input id="start" type="datetime-local" required />
+                </div>
+                <div>
+                    <label>Fin</label>
+                    <input id="end" type="datetime-local" required />
+                </div>
+            </div>
+            <div class="grid">
+                <button type="submit">Buscar</button>
+                <button id="btnExport" class="secondary" type="button" disabled>Exportar CSV</button>
+            </div>
+        </form>
+
+        <article>
+            <h3>Resultados: <span id="total">0</span></h3>
+            <div class="table-wrap">
+                <table id="results">
+                    <thead>
+                        <tr>
+                            <th>Conversation ID</th>
+                            <th class="nowrap">Start</th>
+                            <th>Agent</th>
+                            <th>Agent ID</th>
+                            <th>Queue</th>
+                            <th>ANI</th>
+                            <th>DNIS</th>
+                            <th>Disconnect</th>
+                            <th>Error</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </article>
+
+        <article>
+            <h3>Gráfica (conteo por hora)</h3>
+            <canvas id="chart" height="120"></canvas>
+        </article>
+    </main>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="./chart.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

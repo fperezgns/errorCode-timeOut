@@ -1,0 +1,24 @@
+# ─── CONFIGURACIÓN Y CREDENCIALES ──────────────────────────────
+.env
+server/.env
+
+# ─── DEPENDENCIAS ───────────────────────────────────────────────
+node_modules/
+server/node_modules/
+
+# ─── ARCHIVOS TEMPORALES / LOGS ─────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── BUILD / CACHÉ ──────────────────────────────────────────────
+dist/
+build/
+.cache/
+.temp/
+
+# ─── SISTEMA OPERATIVO ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
